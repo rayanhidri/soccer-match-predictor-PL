@@ -16,11 +16,9 @@ Built an end-to-end machine learning pipeline to predict Premier League match ou
 - ✅ **+9.87 points** improvement over baseline (43.42%)
 - ✅ Matches top academic research benchmarks (50-55%)
 
-<<<<<<< Updated upstream
-Build a soccer match predictor that achieves **accuracy** through intelligent feature engineering rather than just collecting massive datasets.
-=======
+**Philosophy: Build a soccer match predictor that achieves **accuracy** through intelligent feature engineering rather than just collecting massive datasets.**
+
 ## 📊 Results Summary
->>>>>>> Stashed changes
 
 | Model | Train Accuracy | Test Accuracy | vs Baseline |
 |-------|----------------|---------------|-------------|
