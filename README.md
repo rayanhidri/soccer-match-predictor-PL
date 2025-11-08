@@ -1,138 +1,194 @@
-# ⚽ Soccer Match Predictor - Premier League
+# ⚽ Premier League Match Outcome Predictor
 
-Machine Learning project to predict Premier League match outcomes with 72%+ accuracy using intelligent feature engineering.
+Machine Learning system achieving **53% accuracy** on soccer match predictions through intelligent feature engineering and ensemble modeling.
 
-## 📊 Project Status: 50% Complete
-```
-████████████░░░░░░░░░░░░ 50%
-```
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![ML](https://img.shields.io/badge/ML-XGBoost%20%7C%20RandomForest-orange.svg)
+![Accuracy](https://img.shields.io/badge/Accuracy-53.29%25-success.svg)
 
-### ✅ Completed
-- [x] Project setup & structure (Nov 5, 2024)
-- [x] Data collection - 760 matches from 2023-24 season (Nov 5, 2024)
-- [x] Exploratory Data Analysis (Nov 5, 2024)
-  - Home advantage confirmed: 43.4% wins vs 33.6% away
-  - Average 3.11 goals per match
-  - Top performers: Man City, Liverpool, Arsenal
-- [x] **Pandas Bootcamp - Mastered 10 essential functions** (Nov 7, 2024)
-- [x] **Feature Engineering - 10 ML-ready features created** (Nov 7, 2024)
+## 🎯 Project Overview
 
-### 🚧 In Progress
-- [ ] Model Training (Logistic Regression, Random Forest, XGBoost)
-- [ ] Model Evaluation & Optimization
-- [ ] Final deployment & documentation
+Built an end-to-end machine learning pipeline to predict Premier League match outcomes (Home Win/Draw/Away Win) using 760 matches across 2 seasons. The XGBoost model achieves **53.29% accuracy**, outperforming the baseline by **9.8 points** and matching published academic benchmarks.
 
-## 🎯 Goal
+### Key Achievements
+- ✅ **53.29% prediction accuracy** on **3-class classification**
+- ✅ **25 engineered features** from historical match data
+- ✅ **+9.87 points** improvement over baseline (43.42%)
+- ✅ Matches top academic research benchmarks (50-55%)
 
+<<<<<<< Updated upstream
 Build a soccer match predictor that achieves **accuracy** through intelligent feature engineering rather than just collecting massive datasets.
+=======
+## 📊 Results Summary
+>>>>>>> Stashed changes
 
-**Philosophy:** 760 matches + smart features > 5000 matches + basic features
+| Model | Train Accuracy | Test Accuracy | vs Baseline |
+|-------|----------------|---------------|-------------|
+| **XGBoost** | 89.14%   | **53.29%**    | **+9.87**   |
+| RF | 95.72% | 51.32%   | +7.90         |             |
+| LR | 53.45% | 46.05%   | +2.63         |             |
 
-## 🧠 Feature Engineering Highlights
 
-### 10 Features Created (Nov 7, 2024)
+## 🧠 Feature Engineering
 
-**1. Recent Form Analysis**
-- `home_form`: Points from last 5 home matches
-- `away_form`: Points from last 5 away matches  
-- `form_diff`: Form difference (key predictor!)
+Created **25 time-aware features** to capture team performance and momentum:
 
-**2. Goals Trends**
-- `home_goals_scored_avg`: Average goals scored at home
-- `home_goals_conceded_avg`: Average goals conceded at home
-- `away_goals_scored_avg`: Average goals scored away
-- `away_goals_conceded_avg`: Average goals conceded away
+### 1. Form Analysis (3 features)
+- Recent form (last 5 matches points)
+- Home/away form differential
+- Momentum trends
 
-**3. Strength Differentials**
-- `offensive_strength_diff`: Who has better attack?
-- `defensive_strength_diff`: Who has better defense?
+### 2. Goals Trends (6 features)
+- Average goals scored/conceded
+- Offensive/defensive strength differentials
+- Home vs away goal patterns
 
-**4. Target Variable**
-- `result`: Match outcome (Home Win / Away Win / Draw)
+### 3. Market Value (3 features)
+- Team market value (€78M - €1.28B range)
+- Value differential between opponents
+- Quality gap indicator
 
-### Key Insights from Features
-- Form difference ranges from -12 to +15 points
-- Man City averages 2.47 goals/match at home (league best)
-- Home teams concede 0.21 fewer goals on average
-- Features capture momentum, attacking prowess, and defensive solidity
+### 4. Performance Metrics (6 features)
+- Win rates (home/away specific)
+- Cumulative points
+- Goal difference trends
 
-## 🗂️ Project Structure
-```
-soccer-predictor/
-├── data/
-│   ├── raw/                           # Original API data (760 matches)
-│   └── processed/                     # Feature-engineered dataset ✅
-│       └── matches_with_features.csv
-├── notebooks/
-│   ├── 01_data_exploration.ipynb      ✅ Complete
-│   ├── 02_feature_engineering.ipynb   ✅ Complete  
-│   ├── pandas_practice.ipynb          ✅ Complete
-│   └── 03_model_training.ipynb        🚧 Next
-├── src/
-│   └── scraping/
-│       └── fetch_pl_data.py           ✅ Complete
-└── README.md
-```
+### 5. Context Features (7 features)
+- Rest days between matches
+- Big 6 team indicators
+- Season position tracking
+
+**Key Innovation:** All features calculated using only data **before** each match to prevent data leakage.
 
 ## 🛠️ Tech Stack
 
-- **Data Collection:** Football-Data.org API
-- **Data Processing:** Pandas, NumPy
+- **Languages:** Python 3.9+
+- **ML Libraries:** Scikit-learn, XGBoost, NumPy
+- **Data Processing:** Pandas
 - **Visualization:** Matplotlib, Seaborn
-- **Machine Learning:** Scikit-learn, XGBoost (coming soon)
-- **Development:** Jupyter Notebooks, Git, Python 3.9+
+- **Development:** Jupyter Notebooks, Git
+- **Data Source:** Football-Data.org API
+
+## 📁 Project Structure
+```
+soccer-predictor/
+├── data/
+│   ├── raw/                    # Original match data (760 matches)
+│   └── processed/              # Feature-engineered dataset
+├── notebooks/
+│   ├── 01_data_exploration.ipynb      # EDA and insights
+│   ├── 02_feature_engineering.ipynb   # Feature creation
+│   └── 03_model_training.ipynb        # Model comparison
+├── src/
+│   └── scraping/
+│       └── fetch_pl_data.py           # Data collection script
+├── requirements.txt
+└── README.md
+```
+
+## 🚀 Getting Started
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/rayanhidri/soccer-match-predictor-PL.git
+cd soccer-predictor
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Running the Notebooks
+```bash
+# Start Jupyter
+jupyter notebook
+
+# Run notebooks in order:
+# 1. 01_data_exploration.ipynb
+# 2. 02_feature_engineering.ipynb
+# 3. 03_model_training.ipynb
+```
+
+## 📈 Model Performance Details
+
+### Confusion Matrix (XGBoost)
+```
+Predicted →    Away  Draw  Home
+Actual ↓
+Away            32    5    14     (62.7% recall)
+Draw            14    4    17     (11.4% recall)
+Home            13    8    45     (68.2% recall)
+```
+
+### Key Insights
+- **Home wins** predicted with 68% accuracy
+- **Away wins** predicted with 63% accuracy  
+- **Draws** remain challenging (23% of matches, hard to predict)
+
+### Feature Importance (Top 5)
+1. **Market Value Differential** - 21.6%
+2. **Cumulative Points (Home)** - 11.9%
+3. **Win Rate Differential** - 11.2%
+4. **Cumulative Points (Away)** - 11.0%
+5. **Form Differential** - 10.3%
+
+## 🎓 Learning Outcomes
+
+### Technical Skills Developed
+- End-to-end ML pipeline design
+- Time-series feature engineering
+- Handling class imbalance (43%/34%/23% distribution)
+- Hyperparameter optimization
+- Model evaluation and comparison
+
+### Key Challenges Solved
+1. **Data Leakage Prevention:** Implemented strict temporal validation
+2. **Class Imbalance:** Used class weighting and ensemble methods
+3. **Overfitting:** Reduced through regularization (40% → 36% train-test gap)
 
 ## 📊 Dataset
 
 - **Source:** Football-Data.org API
-- **League:** Premier League 2023-24 Season
-- **Matches:** 760 (full season)
-- **Teams:** 20 Premier League clubs
-- **Features:** 10 engineered features
-- **Target:** Match result (H/D/A)
+- **League:** Premier League (England)
+- **Seasons:** 2022-23, 2023-24
+- **Matches:** 760 total
+- **Teams:** 23 (including promoted/relegated)
 
-*Note: Raw and processed data are stored locally following ML best practices.*
+## 🔮 Future Improvements
 
-## 🚀 Next Steps
+- [ ] Incorporate betting odds as features (+3-5% accuracy potential)
+- [ ] Add player-level data (injuries, ratings)
+- [ ] Implement deep learning models (LSTM for sequences)
+- [ ] Expand to multiple leagues
+- [ ] Real-time prediction API
+- [ ] Dynamic market value updates
 
-1. ✅ ~~Master pandas fundamentals~~
-2. ✅ ~~Engineer intelligent features~~
-3. 🚧 Train baseline model (Logistic Regression)
-4. 🚧 Implement ensemble models (Random Forest, XGBoost)
-5. 🚧 Compare model performances & feature importance
-6. 🚧 Hyperparameter tuning
-7. 🚧 Final evaluation and documentation
+## 📝 Project Timeline
 
-## 📝 Learning Journey
+**Nov 5, 2024:** Project setup, data collection, EDA  
+**Nov 7, 2024:** Feature engineering (25 features)  
+**Nov 8, 2024:** Model training, optimization, final results
 
-This project emphasizes:
-- **Quality over quantity:** Smart features beat big data
-- **Feature engineering first:** Models are only as good as the features
-- **Domain knowledge:** Soccer understanding informs better features
-- **Time-aware features:** Avoiding data leakage in time-series data
-- **Iterative improvement:** Build, test, learn, repeat
+**Total Development Time:** ~15-20 hours
 
-## 🎓 Skills Demonstrated
+## 🤝 Contributing
 
-- REST API integration and data collection
-- Exploratory Data Analysis with visualization
-- Feature engineering for time-series/sports data
-- Pandas data manipulation (groupby, filtering, aggregations)
-- Machine Learning pipeline design
-- Git version control workflow
-- Technical documentation
+This is a portfolio project, but suggestions and feedback are welcome! Feel free to open an issue or reach out!
 
-## 📈 Progress Timeline
+## 📬 Contact
 
-- **Nov 5, 2024:** Project setup, data collection, EDA
-- **Nov 7, 2024:** Pandas bootcamp, feature engineering (10 features)
-- **Coming Next:** Model training and evaluation
+**Rayan Hidri**  
+- LinkedIn: [https://www.linkedin.com/in/rayan-hidri/]
+- Email: [rayan.hidri@umontreal.ca]
+
+## 📄 License
+
+MIT License - feel free to use this project for learning purposes.
 
 ---
+⭐ **If you found this project interesting, please star the repo!**
 
-**Current Status:** Feature engineering complete, ready for ML training
-**Target Accuracy:** 72%+
-**Next Session:** Build and train prediction models
-
-## 📝 License
-MIT
