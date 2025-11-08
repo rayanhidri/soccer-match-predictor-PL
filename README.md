@@ -24,7 +24,7 @@ Machine Learning project to predict Premier League match outcomes with 72%+ accu
 
 ## 🎯 Goal
 
-Build a soccer match predictor that achieves **72%+ accuracy** through intelligent feature engineering rather than just collecting massive datasets.
+Build a soccer match predictor that achieves **accuracy** through intelligent feature engineering rather than just collecting massive datasets.
 
 **Philosophy:** 760 matches + smart features > 5000 matches + basic features
 
